@@ -15,5 +15,10 @@ namespace EngineBay.ModuleTemplate
         {
             return endpoints;
         }
+
+        public WebApplication AddMiddleware(WebApplication app)
+        {
+            return app;
+        }
     }
 }
