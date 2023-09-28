@@ -2,23 +2,41 @@ namespace EngineBay.ModuleTemplate
 {
     using EngineBay.Core;
 
-    public class ModuleTemplateModule : IModule
+    public class ModuleTemplateModule : BaseModule
     {
-        /// <inheritdoc/>
-        public IServiceCollection RegisterModule(IServiceCollection services, IConfiguration configuration)
+        public override IServiceCollection RegisterModule(IServiceCollection services, IConfiguration configuration)
         {
+            // override the base method to configure dependency injection
+            // otherwise, delete this method
             return services;
         }
 
-        /// <inheritdoc/>
-        public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
+        public override RouteGroupBuilder MapEndpoints(RouteGroupBuilder endpoints)
         {
+            // override the base method to register API endpoints
+            // otherwise, delete this method
             return endpoints;
         }
 
-        public WebApplication AddMiddleware(WebApplication app)
+        public override WebApplication AddMiddleware(WebApplication app)
         {
+            // override the base method to register any middleware
+            // otherwise, delete this method
             return app;
+        }
+
+        public override IServiceCollection RegisterPolicies(IServiceCollection services)
+        {
+            // override the base method to register any role and claim policies
+            // otherwise, delete this method
+            return services;
+        }
+
+        public override void SeedDatabase(string seedDataPath, IServiceProvider serviceProvider)
+        {
+            // override the base method to load seed data for the module
+            // otherwise, delete this method
+            return;
         }
     }
 }
